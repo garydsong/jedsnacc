@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -8,13 +8,17 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Cart from './components/Cart/Cart';
+import Snack from './components/Snack/Snack';
+import SnackPage from './components/Snack/SnackPage';
 
 function App() {
+  const sessionUser = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -28,6 +32,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -35,7 +40,10 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
+          <Cart />
+          <Snack />
+          <SnackPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
