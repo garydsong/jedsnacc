@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import logo from '../assets/logo.svg'
 import user from '../assets/user.svg'
-import { useSelector } from 'react-redux';
+import shopping from '../assets/shopping.svg'
+import { useSelector } from 'react-redux'
 
 const NavBar = () => {
   const currentUser = useSelector(state => state.session.user);
@@ -18,8 +19,11 @@ const NavBar = () => {
             <div id="snacc-text">SNACC</div>
           </NavLink>
 
+
+
+
         {!currentUser ?
-          (
+           (
             <>
               <div className="right-nav-wrapper2">
                 <div id="login">
@@ -36,12 +40,24 @@ const NavBar = () => {
             </>
           ) : (
             <>
+
               <div className="right-nav-wrapper">
-                <div>
-                  <NavLink to='/users' id="user-avatar" exact={true} activeClassName='active'>
-                    <img className="user-avatar" src={user} />
+              <div>
+                  <NavLink to='/carts' id="cart-avatar" exact={true} activeClassName='active'>
+                    <img className="cart-avatar" src={shopping} />
                   </NavLink>
                 </div>
+                
+              {currentUser.id === 1 ? (
+                <div>
+                <NavLink to='/users' id="user-avatar" exact={true} activeClassName='active'>
+                  <img className="user-avatar" src={user} />
+                </NavLink>
+              </div>
+              ) : (<></>)
+              }
+
+
                 <div>
                   <LogoutButton />
                 </div>
@@ -51,8 +67,7 @@ const NavBar = () => {
           </div>
       </div>
       {/* break tags here to trivially create margins behind fixed navbar position*/}
-      <br></br><br></br><br></br><br></br>
-      <br></br><br></br><br></br><br></br>
+      <br></br><br></br><br></br>
     </>
   );
 }

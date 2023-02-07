@@ -17,9 +17,10 @@ export default function Snack() {
     const [snackUpdatedPrice, setSnackUpdatedPrice] = useState(0)
     const [loaded, setLoaded] = useState(false)
 
-    useEffect(() => {
-        dispatch(getAllSnacksThunk())
-    }, [])
+    useEffect(async () => {
+        await dispatch(getAllSnacksThunk())
+        setLoaded(true)
+    }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -63,11 +64,11 @@ export default function Snack() {
 
     const handleDelete = (e) => {
         e.preventDefault()
-        let deletedStore = dispatch(deleteASnackThunk(1))
+        let deletedStore = dispatch(deleteASnackThunk(4))
         if (deletedStore) window.alert("snack deleted")
     }
 
-    return (
+    return loaded && (
         <>
             <div>
 

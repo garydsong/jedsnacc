@@ -11,6 +11,14 @@ import { authenticate } from './store/session';
 import Cart from './components/Cart/Cart';
 import Snack from './components/Snack/Snack';
 import SnackPage from './components/Snack/SnackPage';
+import SnackPageId from './components/Snack/SnackPageId';
+import SnackBox from './components/Snack/SnackBox';
+import './HomePage.css';
+import ShoppingCart from './components/Cart/ShoppingCart';
+import SnackCarousel from './components/Carousel/Carousel';
+import Footer from './components/Footer/Footer';
+import OrderPlacedPage from './components/OrderPlacedPage/OrderPlacedPage';
+
 
 function App() {
   const sessionUser = useSelector(state => state.session.user)
@@ -39,20 +47,40 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <Route path='/snacks/:snackId' exact={true}>
+          <SnackPageId />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
           <Cart />
+
           <Snack />
-          <SnackPage />
+          {/* <SnackPage /> */}
+        </ProtectedRoute>
+        <ProtectedRoute path='/carts' exact={true} >
+          <ShoppingCart/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/orderplaced' exact={true} >
+          <OrderPlacedPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <img className="bannerImage" src="https://content.7-eleven.ca/wp-content/uploads/2020/05/ATasteOfAsia_banner.jpg"></img>
+          <SnackCarousel />
+
+          <div class="product-group-title"> The Hottest Products In Asia Right now!!!! </div>
+          <SnackBox />
+        </Route>
+
       </Switch>
+
+
+      <Footer />
     </BrowserRouter>
+
+
   );
 }
 

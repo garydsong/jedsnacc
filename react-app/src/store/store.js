@@ -115,7 +115,7 @@ export default function stores(state = {}, action) {
             return newState
         case DELETE_STORE:
             newState = { ...state }
-            delete newState.userStore[action.store]
+            delete newState.userStore
             return newState
         default:
             return state;

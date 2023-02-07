@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import logo from '../../assets/logo.svg'
+import './Login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +33,49 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className="login-container">
+      <img className="snacc-rice" src={logo} />
+      <form onSubmit={onLogin}>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind} id="error-color">{error}</div>
+          ))}
+        </div>
+        <div className="input-grouper">
+          <div>Email</div>
+          <input
+            name='email'
+            type='text'
+            className="sign-up-input"
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className="input-grouper">
+          <div>Password</div>
+          <input
+            name='password'
+            type='password'
+            className="sign-up-input"
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <button id="loginsubmit" type='submit'>Login</button>
+
+        <div>
+                <button
+                  id="loginsubmit"
+                  type='submit'
+                  onClick={() => {
+                    dispatch(login('demo@aa.io', 'password'))
+                  }}
+                >Login as Demo User</button>
+              </div>
+      </form>
+    </div>
   );
 };
 
