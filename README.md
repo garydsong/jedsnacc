@@ -86,3 +86,4 @@ each of the following variables:
 
 
 # jedsnacc
+# jedfinal
