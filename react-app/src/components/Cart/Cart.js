@@ -16,7 +16,6 @@ export default function Cart() {
     const [storeUpdatedName, setStoreUpdatedName] = useState('')
     const [storeUpdatedDescription, setStoreUpdatedDescription] = useState('')
     const [storeUpdatedHeader, setStoreUpdatedHeader] = useState('')
-
     const [loaded, setLoaded] = useState(false)
     const [snackName, setSnackName] = useState('')
     const [snackDescription, setSnackDescription] = useState('')
@@ -83,7 +82,7 @@ export default function Cart() {
         if (deletedStore) window.alert("store deleted")
     }
 
-    const handleSubmitSnack = (e) => {
+    const handleSubmitSnack = async (e) => {
         e.preventDefault()
 
         const snack = {
@@ -93,7 +92,7 @@ export default function Cart() {
             price: snackPrice
         }
 
-        let createdSnack = dispatch(createASnackThunk(snack, currentUser.id))
+        let createdSnack = await dispatch(createASnackThunk(snack, currentUser.id))
 
         if (createdSnack) {
             setSnackName('')
