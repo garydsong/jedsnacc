@@ -147,7 +147,7 @@ export default function Snack() {
                     <button type='submit'>UPDATE A SNACK</button>
                 </form>
             </div>
-            <br></br><br></br>
+            <br></br>
             <div>
                 <button onClick={handleDelete}>DELETE SNACK</button>
             </div>
