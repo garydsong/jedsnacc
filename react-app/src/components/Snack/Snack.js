@@ -70,7 +70,7 @@ export default function Snack() {
 
     return loaded && (
         <>
-            {/* <div>
+            <div>
 
                 <form onSubmit={handleSubmit}>
                     <textarea
@@ -108,7 +108,7 @@ export default function Snack() {
                     <button type='submit'>CREATE A SNACK</button>
                 </form>
             </div>
-            <br></br><br></br> */}
+            <br></br><br></br>
 
             <div>
                 <form onSubmit={handleUpdate}>

@@ -53,8 +53,6 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
           <Cart />
-
-          <Snack />
           {/* <SnackPage /> */}
         </ProtectedRoute>
         <ProtectedRoute path='/carts' exact={true} >
