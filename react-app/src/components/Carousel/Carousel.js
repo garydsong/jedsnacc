@@ -2,6 +2,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function SnackCarousel() {
   return (
+    <>
+    <img className="bannerImage" src="https://content.7-eleven.ca/wp-content/uploads/2020/05/ATasteOfAsia_banner.jpg"></img>
+
     <Carousel fade>
       <Carousel.Item>
         <img
@@ -36,6 +39,8 @@ function SnackCarousel() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    <div class="product-group-title"> The Hottest Products In Asia Right now!!!! </div>
+    </>
   );
 }
 

@@ -41,6 +41,10 @@ function App() {
       <NavBar />
       <Switch>
 
+        <Route path='/' exact={true} >
+          <SnackCarousel />
+          <SnackBox />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -56,21 +60,15 @@ function App() {
           {/* <SnackPage /> */}
         </ProtectedRoute>
         <ProtectedRoute path='/carts' exact={true} >
-          <ShoppingCart/>
+          <ShoppingCart />
         </ProtectedRoute>
         <ProtectedRoute path='/orderplaced' exact={true} >
-          <OrderPlacedPage/>
+          <OrderPlacedPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
-          <img className="bannerImage" src="https://content.7-eleven.ca/wp-content/uploads/2020/05/ATasteOfAsia_banner.jpg"></img>
-          <SnackCarousel />
 
-          <div class="product-group-title"> The Hottest Products In Asia Right now!!!! </div>
-          <SnackBox />
-        </Route>
 
       </Switch>
 
