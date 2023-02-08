@@ -13,7 +13,6 @@ import Snack from './components/Snack/Snack';
 import SnackPage from './components/Snack/SnackPage';
 import SnackPageId from './components/Snack/SnackPageId';
 import SnackBox from './components/Snack/SnackBox';
-import './HomePage.css';
 import ShoppingCart from './components/Cart/ShoppingCart';
 import SnackCarousel from './components/Carousel/Carousel';
 import Footer from './components/Footer/Footer';
@@ -44,15 +43,19 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <SnackCarousel />
           <SnackBox />
+
         </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
+          <Footer />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+          <Footer />
         </Route>
         <Route path='/snacks/:snackId' exact={true}>
           <SnackPageId />
+          <Footer />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
@@ -61,9 +64,11 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/carts' exact={true} >
           <ShoppingCart />
+          <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/orderplaced' exact={true} >
           <OrderPlacedPage />
+          <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -73,7 +78,7 @@ function App() {
       </Switch>
 
 
-      <Footer />
+
     </BrowserRouter>
 
 
