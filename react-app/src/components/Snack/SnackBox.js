@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "../Snack/SnackBox.css"
 import SnackPage from "./SnackPage";
+import { getAllSnacksThunk } from "../../store/snack";
 
 
 export default function SnackBox() {
