@@ -47,15 +47,13 @@ function App() {
         </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
-          <Footer />
+          <Footer/>
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
-          <Footer />
         </Route>
         <Route path='/snacks/:snackId' exact={true}>
           <SnackPageId />
-          <Footer />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
@@ -64,11 +62,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/carts' exact={true} >
           <ShoppingCart />
-          <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/orderplaced' exact={true} >
           <OrderPlacedPage />
-          <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -77,7 +73,7 @@ function App() {
 
       </Switch>
 
-
+      
 
     </BrowserRouter>
 
