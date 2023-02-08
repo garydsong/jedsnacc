@@ -20,6 +20,7 @@ export default function SnackPage() {
         event.currentTarget.src = 'https://www.arirangusa.net/wp-content/uploads/2020/09/LUCKY-BOX-RANDOM-21PACKS-M.jpg';
     };
 
+    
     return loaded && (
         <>
             {/* {console.log('a', Object.values(snacks)[0].store.user_id)} */}

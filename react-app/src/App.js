@@ -41,10 +41,10 @@ function App() {
       <NavBar />
       <Switch>
 
-        <Route path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
           <SnackCarousel />
           <SnackBox />
-        </Route>
+        </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
